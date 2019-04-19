@@ -1,0 +1,54 @@
+<p>
+  register works!
+</p>
+<!--inner header start-->
+<div class="main-heading">
+  <div class="container">
+    <h3>Register</h3>
+  </div>
+</div>
+<!--inner header end-->
+
+<!--inner content start-->
+<div class="main-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-6">
+        <form class="login-form" name="loginForm">
+          <div class="md-block">
+            <label>name</label>
+            <input required name="userName" ng-model="login.userName">
+          </div>
+
+          <div class="md-block">
+            <label>LastName</label>
+            <input required name="userLastName" ng-model="login.userLastName">
+          </div>
+
+          <div class="md-block">
+            <label>adresse</label>
+            <input required name="adresse" ng-model="login.adresse">
+          </div>
+
+          <div class="md-block">
+            <label>Password</label>
+            <input required type="password" name="password" ng-model="login.password">
+          </div>
+          <br>
+          <div class="md-block">
+            <input type="checkbox" name="tos" ng-model="login.tos" required><label>Remember Me</label>
+          </div>
+
+          <div>
+            <button class="login-btn" type="submit">Register</button>
+            <p class="text-center"> --------- OR --------</p>
+            <a href="#" class="facebook-login-btn"><i class="fa fa-facebook"></i> Register with Facebook</a>
+            <a href="#" class="google-login-btn"><i class="fa fa-google"></i> Register with Google</a>
+          </div>
+        </form>
+      </div>
+      <div class="col-sm-3"></div>
+    </div>
+  </div>
+</div>

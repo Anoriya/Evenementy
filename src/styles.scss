@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+@import "assets/styles/framework.css";
+@import "assets/styles/layout.css";
+.main-heading {
+  text-align: center;
+}
+.facebook-login-btn {
+  width: 98%;
+  background: #3b5998;
+  border-radius: 0px;
+  color: #fff;
+  display: inline-block;
+  line-height: 42px;
+  margin: 6px 8px;
+  text-align: center;
+}
+
+.google-login-btn {
+  width: 98%;
+  background: #dd4b39;
+  border-radius: 0px;
+  color: #fff;
+  display: inline-block;
+  line-height: 42px;
+  margin: 6px 8px;
+  text-align: center;
+}
+.login-btn {
+  width: 20%;
+  background: #dc3535;
+  border-radius: 10px;
+  color: #fff;
+  line-height: 42px;
+}
+
+
