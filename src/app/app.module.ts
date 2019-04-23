@@ -10,6 +10,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AppRoutingModule} from './app-routing.module';
+import { EventComponent } from './event/event.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AppRoutingModule} from './app-routing.module';
     HeaderComponent,
     CarouselComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    EventComponent
   ],
   imports: [
     BrowserModule,

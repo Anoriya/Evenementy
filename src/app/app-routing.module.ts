@@ -3,12 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { CarouselComponent} from 'src/app/carousel/carousel.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
+import {EventComponent} from './event/event.component';
 
 const routes: Routes = [
 
   { path: '', component: CarouselComponent  },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', component: RegisterComponent },
+  { path: 'event', component: EventComponent }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
