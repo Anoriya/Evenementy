@@ -10,7 +10,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AppRoutingModule} from './app-routing.module';
-import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +17,7 @@ import { SearchComponent } from './search/search.component';
     HeaderComponent,
     CarouselComponent,
     LoginComponent,
-    RegisterComponent,
-    SearchComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
