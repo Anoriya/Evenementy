@@ -5,6 +5,10 @@ import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {SearchComponent} from './search/search.component';
 import {EventComponent} from './event/event.component';
+import {CovoiturageComponent} from './covoiturage/covoiturage.component';
+import {ProfileComponent} from './profile/profile.component';
+import {EditProfileComponent} from './edit-profile/edit-profile.component';
+import {ContactComponent} from './contact/contact.component';
 
 const routes: Routes = [
 
@@ -12,7 +16,11 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'search', component : SearchComponent},
-  { path: 'event', component : EventComponent}
+  { path: 'event', component : EventComponent},
+  { path: 'cov', component : CovoiturageComponent},
+  { path: 'profile', component : ProfileComponent},
+  { path: 'edit', component : EditProfileComponent},
+  { path: 'contact', component : ContactComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

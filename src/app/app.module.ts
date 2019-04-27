@@ -11,6 +11,12 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AppRoutingModule} from './app-routing.module';
 import { SearchComponent } from './search/search.component';
+import { EventComponent} from './event/event.component';
+import { CovoiturageComponent } from './covoiturage/covoiturage.component';
+import { ProfileComponent } from './profile/profile.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { FooterComponent } from './footer/footer.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +25,13 @@ import { SearchComponent } from './search/search.component';
     CarouselComponent,
     LoginComponent,
     RegisterComponent,
-    SearchComponent
+    SearchComponent,
+    EventComponent,
+    CovoiturageComponent,
+    ProfileComponent,
+    EditProfileComponent,
+    FooterComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

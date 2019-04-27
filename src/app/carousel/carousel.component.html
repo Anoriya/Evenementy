@@ -1,24 +1,27 @@
-<div class="row" style="padding-left: 300px">
+<div class="row" style="margin: 0 auto;padding-left: 300px;margin-top: 20px">
   <div>
-    <div class="card">
+    <div class="card" style="margin: 0 auto">
       <div class="card-body">
         <ngb-carousel>
           <ng-template ngbSlide>
-            <img src="assets/images/big/img1.jpg" alt="Random first slide">
+            <a routerLink="event"><img src="assets/images/big/img1.jpg" alt="Random first slide"></a>
+            <div class="carousel-caption2" style="vertical-align: middle"><a style="vertical-align: middle;color: #F1F1F1" routerLink="/search" class="btn-style-6 size-small dark-skin corner-off-rounded">See More</a></div>
             <div class="carousel-caption">
-              <h3 class="text-white font-bold">First slide label</h3>
+              <h3 class="text-white font-bold">Event 1</h3>
               <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
             </div>
           </ng-template>
           <ng-template ngbSlide>
             <img src="assets/images/big/img2.jpg" alt="Random second slide">
+            <div class="carousel-caption2" style="vertical-align: middle"><a style="vertical-align: middle;color: #F1F1F1" routerLink="/search" class="btn-style-6 size-small dark-skin corner-off-rounded">See More</a></div>
             <div class="carousel-caption">
-              <h3 class="text-white font-bold">Second slide label</h3>
+              <h3 class="text-white font-bold">Event 2</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
           </ng-template>
           <ng-template ngbSlide>
             <img src="assets/images/big/img3.jpg" alt="Random third slide">
+            <div class="carousel-caption2" style="vertical-align: middle"><a style="vertical-align: middle;color: #F1F1F1" routerLink="/search" class="btn-style-6 size-small dark-skin corner-off-rounded">See More</a></div>
             <div class="carousel-caption">
               <h3 class="text-white font-bold">Third slide label</h3>
               <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
@@ -29,3 +32,4 @@
     </div>
   </div>
 </div>
+<div style="text-align: -webkit-center;margin-top: 20px;margin-bottom: 20px;font-size: 50px;font-family: auto"><p>Discover Our Latest Events...</p><button class="btn btn-secondary" routerLink="/search">See More Now</button></div>

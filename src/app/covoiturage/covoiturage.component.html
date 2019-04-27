@@ -1,0 +1,74 @@
+<div class="p-5" *ngIf="!formon">
+  <nav class="navbar navbar-light bg-light justify-content-between">
+    <button class="navbar-brand btn btn-primary" (click)="formonoff()">Add Covoiturage</button>
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </nav>
+
+  <div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">List group item heading</h5>
+        <small class="btn">s'inscrire</small>
+      </div>
+      <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+      <small>Donec id elit non mi porta.</small>
+    </a>
+    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">List group item heading</h5>
+        <small class="btn">s'inscrire</small>
+      </div>
+      <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+      <small class="text-muted">Donec id elit non mi porta.</small>
+    </a>
+    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">List group item heading</h5>
+        <small class="btn">s'inscrire</small>
+      </div>
+      <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+      <small class="text-muted">Donec id elit non mi porta.</small>
+    </a>
+  </div>
+</div>
+<!----------------   Formulaire Ajout covoiturage commence ici  --------------->
+<div *ngIf="formon"><div style="position: absolute;width: 50px"><a (click)="formoffon()"><img src="../../assets/images/39764.png"></a></div>
+  <div id="Form" style="text-align: -webkit-center">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <form class="form-horizontal" enctype="multipart/form-data" (submit)="ajouterEvt()">
+
+
+          <div class="form-group">
+            <label  class="col-sm-4 control-label">voiture</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" name="titre" placeholder="titre" [(ngModel)]="model.titre"  required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label  class="col-sm-4 control-label">nombre de places</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" name="dh"  [(ngModel)]="model.datee" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label  class="col-sm-4 control-label">Description</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" name="contenu" placeholder="contenu"  [(ngModel)]="model.contenu" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-10">
+              <button type="submit" name="ok" class="btn btn-primary">Ajouter covoiturage</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div></div>
