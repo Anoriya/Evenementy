@@ -17,6 +17,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './contact/contact.component';
+import { MyProfileComponent } from './my-profile/my-profile.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ContactComponent } from './contact/contact.component';
     ProfileComponent,
     EditProfileComponent,
     FooterComponent,
-    ContactComponent
+    ContactComponent,
+    MyProfileComponent
   ],
   imports: [
     BrowserModule,

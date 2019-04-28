@@ -6,22 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-    formon=false;
-    pub=true;
   constructor() { }
 
   ngOnInit() {
   }
-    formonoff(){
-        this.formon = true;
-    }
-    formoffon(){
-        this.formon = false;
-    }
-    pubonoff(){
-        this.pub = true;
-    }
-    puboffon(){
-        this.pub = false;
-    }
 }

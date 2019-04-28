@@ -1,147 +1,56 @@
-<!--inner content start-->
-<hr>
-<div style="text-align: center"><div class="wrapper row2" style="text-align: center">
-  <nav id="mainav" class="hoc clear">
-    <ul class="clear">
-      <li><a href="" target="_blank">My Events</a></li>
-    </ul>
-  </nav>
-</div></div>
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="collapse navbar-collapse" id="navbarText">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" (click)="pubonoff()">Published <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" (click)="puboffon()">Participated In</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-<div *ngIf="pub">
-<div class="p-5" *ngIf="!formon">
-  <nav class="navbar navbar-light bg-light justify-content-between">
-    <button class="navbar-brand btn btn-primary" (click)="formonoff()">New Event</button>
-    <form class="form-inline">
-      <label>search with : </label>
-      <select class="form-control mr-sm-2"><option>genre</option><option>name</option></select>
-      <input class="form-control mr-sm-2" type="search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </nav>
-
-  <div class="list-group">
-    <a routerLink="/event" class="list-group-item list-group-item-action flex-column align-items-start ">
-      <div style="display: -webkit-inline-box"><img style="width: 200px" src="../../assets/images/big/img1.jpg">
-        <div style="margin-left: 20px"><div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">List group item heading</h5>
-        </div>
-          <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-          <small>Donec id elit non mi porta.</small></div><small style="margin-left: 450px">3 days ago</small></div>
-    </a>
-    <a routerLink="/event" class="list-group-item list-group-item-action flex-column align-items-start ">
-      <div style="display: -webkit-inline-box"><img style="width: 200px" src="../../assets/images/big/img1.jpg">
-        <div style="margin-left: 20px"><div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">List group item heading</h5>
-        </div>
-          <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-          <small>Donec id elit non mi porta.</small></div><small style="margin-left: 450px">3 days ago</small></div>
-    </a>
-    <a routerLink="/event" class="list-group-item list-group-item-action flex-column align-items-start ">
-      <div style="display: -webkit-inline-box"><img style="width: 200px" src="../../assets/images/big/img1.jpg">
-        <div style="margin-left: 20px"><div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">List group item heading</h5>
-        </div>
-          <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-          <small>Donec id elit non mi porta.</small></div><small style="margin-left: 450px">3 days ago</small></div>
-    </a>
-  </div>
-</div>
-
-<!----------------   Formulaire Ajout evenement commence ici  --------------->
-<div *ngIf="formon"><div style="position: absolute;width: 50px"><a (click)="formoffon()&&puboffon()"><img src="../../assets/images/39764.png"></a></div>
-  <div id="Form" style="text-align: -webkit-center">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <form class="form-horizontal" enctype="multipart/form-data" (submit)="ajouterEvt()">
-
-
-          <div class="form-group">
-            <label  class="col-sm-4 control-label">titre</label>
-            <div class="col-sm-4">
-              <input type="text" class="form-control" name="titre" placeholder="titre" [(ngModel)]="model.titre"  required>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label  class="col-sm-4 control-label">Date</label>
-            <div class="col-sm-4">
-              <input type="date" class="form-control" name="dh" placeholder="Date d'admission"  [(ngModel)]="model.datee" required>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label  class="col-sm-4 control-label">Description</label>
-            <div class="col-sm-4">
-              <input type="text" class="form-control" name="contenu" placeholder="contenu"  [(ngModel)]="model.contenu" required>
-            </div>
-          </div>
-
-          <div class ="form-group">
-            <label  class="col-sm-4 control-label">image</label>
-            <div class="col-sm-4">
-              <input type="file" (change)="fileChange($event)"   placeholder="Upload file" accept=".png , .jpeg , .jpg">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <div class="col-sm-offset-4 col-sm-10">
-              <button type="submit" name="ok" class="btn btn-primary">Ajouter evenement</button>
-            </div>
-          </div>
-        </form>
+<div class="col-md-4 column" style="margin: 0 auto;margin-top: 20px;margin-bottom: 20px">
+  <div class="contact-now">
+    <div class="contact">
+      <div class="information">
+        <img src="../../assets/images/big/img6.jpg" style="width: 350px">
       </div>
     </div>
-  </div></div></div>
+    <div class="contact">
+      <div class="information">
 
 
-<!----------------  aa  --------------->
-<div *ngIf="!pub"><div class="p-5">
-  <nav class="navbar navbar-light bg-light justify-content-between">
-    <form class="form-inline">
-      <label>search with : </label>
-      <select class="form-control mr-sm-2"><option>genre</option><option>name</option></select>
-      <input class="form-control mr-sm-2" type="search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </nav>
+        <strong>Nom:</strong>
+        <p>cite olympique
+        </p>
+      </div>
+    </div>
+    <div class="contact">
+      <div class="information">
 
-  <div class="list-group">
-    <a routerLink="/event" class="list-group-item list-group-item-action flex-column align-items-start ">
-      <div style="display: -webkit-inline-box"><img style="width: 200px" src="../../assets/images/big/img1.jpg">
-        <div style="margin-left: 20px"><div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">List group item heading</h5>
-        </div>
-          <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-          <small>Donec id elit non mi porta.</small></div><small style="margin-left: 450px">3 days ago</small></div>
-    </a>
-    <a routerLink="/event" class="list-group-item list-group-item-action flex-column align-items-start ">
-      <div style="display: -webkit-inline-box"><img style="width: 200px" src="../../assets/images/big/img1.jpg">
-        <div style="margin-left: 20px"><div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">List group item heading</h5>
-        </div>
-          <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-          <small>Donec id elit non mi porta.</small></div><small style="margin-left: 450px">3 days ago</small></div>
-    </a>
-    <a routerLink="/event" class="list-group-item list-group-item-action flex-column align-items-start ">
-      <div style="display: -webkit-inline-box"><img style="width: 200px" src="../../assets/images/big/img1.jpg">
-        <div style="margin-left: 20px"><div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">List group item heading</h5>
-        </div>
-          <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-          <small>Donec id elit non mi porta.</small></div><small style="margin-left: 450px">3 days ago</small></div>
-    </a>
-  </div>
-</div></div>
+
+        <strong>PreNom:</strong>
+        <p>cite olympique
+        </p>
+      </div>
+    </div>
+    <!-- Contact Info -->
+    <div class="contact">
+      <div class="information">
+
+        <br>
+        <strong>ADRESSE E-MAIL</strong>
+        <p>Evenementy@gmail.com</p>
+
+      </div>
+    </div>
+    <!-- Contact Info -->
+    <div class="contact">
+      <div class="information">
+        <br>
+        <strong>telephone</strong>
+        <p>71484512 </p>
+        <p>22484856</p>
+      </div>
+    </div>
+    <div class="contact">
+      <div class="information">
+        <strong>Password</strong>
+        <p>71548248</p>
+      </div>
+    </div></div></div>
+<div style="margin: 0 auto;text-align: center;margin-bottom: 20px;font-size: 30px"><p>Rate User!!</p>
+  <span class="fa fa-star checked"></span>
+  <span class="fa fa-star checked"></span>
+  <span class="fa fa-star checked"></span>
+  <span class="fa fa-star"></span>
+  <span class="fa fa-star"></span></div>

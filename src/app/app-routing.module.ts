@@ -9,6 +9,7 @@ import {CovoiturageComponent} from './covoiturage/covoiturage.component';
 import {ProfileComponent} from './profile/profile.component';
 import {EditProfileComponent} from './edit-profile/edit-profile.component';
 import {ContactComponent} from './contact/contact.component';
+import {MyProfileComponent} from './my-profile/my-profile.component';
 
 const routes: Routes = [
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'event', component : EventComponent},
   { path: 'cov', component : CovoiturageComponent},
   { path: 'profile', component : ProfileComponent},
+  { path: 'myprofile', component : MyProfileComponent},
   { path: 'edit', component : EditProfileComponent},
   { path: 'contact', component : ContactComponent}
 ];
