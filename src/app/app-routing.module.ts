@@ -10,6 +10,10 @@ import {ProfileComponent} from './profile/profile.component';
 import {EditProfileComponent} from './edit-profile/edit-profile.component';
 import {ContactComponent} from './contact/contact.component';
 import {MyProfileComponent} from './my-profile/my-profile.component';
+import {HomeComponent} from './home/home.component';
+import {UserComponent} from './user/user.component';
+import {AdminComponent} from './admin/admin.component';
+import {PmComponent} from './pm/pm.component';
 
 const routes: Routes = [
 
@@ -22,7 +26,14 @@ const routes: Routes = [
   { path: 'profile', component : ProfileComponent},
   { path: 'myprofile', component : MyProfileComponent},
   { path: 'edit', component : EditProfileComponent},
-  { path: 'contact', component : ContactComponent}
+  { path: 'contact', component : ContactComponent},
+  { path: 'home', component: HomeComponent},
+  { path: 'user', component: UserComponent},
+  { path: 'pm', component: PmComponent},
+  { path: 'admin', component: AdminComponent},
+  { path: 'auth/login', component: LoginComponent},
+  { path: 'signup', component: RegisterComponent},
+  { path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
