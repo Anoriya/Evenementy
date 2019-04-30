@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { getLocaleDateFormat } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { TokenStorageService } from './auth/token-storage.service';
 
 import { Observable } from 'rxjs';
 
@@ -11,7 +12,7 @@ import { Observable } from 'rxjs';
 export class DataService {
   actualites;
   publications;
-  constructor(private Http: HttpClient) { }
+  constructor(private Http: HttpClient,private token: TokenStorageService) { }
   getData(url): any {
     return this.Http.get(url);
   }

@@ -15,6 +15,7 @@ events;
   ngOnInit() {
     this.data.getEvents().subscribe(res => {
       this.events = res;
+      console.log(this.events);
     });
   }
     formonoff(){
