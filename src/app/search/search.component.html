@@ -10,7 +10,7 @@
 </nav>
 
   <div class="list-group">
-    <div *ngFor="let event of events" style="cursor:pointer" routerLink="'/event/'+{{event.id}}" class="list-group-item list-group-item-action flex-column align-items-start ">
+    <div *ngFor="let event of events" style="cursor:pointer" routerLink="/event/{{event.id}}" class="list-group-item list-group-item-action flex-column align-items-start ">
       <div style="display: -webkit-inline-box"><img style="width: 200px" src="../../assets/images/big/img1.jpg">
       <div style="margin-left: 20px"><div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">{{event.name}}</h5>

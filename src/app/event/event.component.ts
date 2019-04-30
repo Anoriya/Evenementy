@@ -14,8 +14,10 @@ event;
 
   ngOnInit() {
     this.id = this.act.snapshot.params['id'];
+    console.log(this.id);
     this.data.getEvent(this.id).subscribe(res => {
-      this.event = res[0];
+      this.event = res;
+      console.log(res);
     });
   }
 

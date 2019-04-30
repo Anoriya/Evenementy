@@ -23,7 +23,7 @@ export class DataService {
     return this.Http.get('http://localhost:8080/api/event/' + id);
   }
   getCovsbyevent(id) {
-    return this.Http.get('http://localhost:8080/api/cov' + id);
+    return this.Http.get('http://localhost:8080/api/covoiturageRelated/' + id);
   }
   getActualite(id) {
     console.log(id);
