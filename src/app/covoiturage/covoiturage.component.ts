@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppComponent} from '../app.component';
 import { DataService} from '../data.service';
 import {ActivatedRoute} from '@angular/router';
+import { covoiturage} from '../covoiturage';
 
 @Component({
   selector: 'app-covoiturage',
@@ -12,7 +13,7 @@ export class CovoiturageComponent implements OnInit {
 formon = false;
 covs;
 id;
-model;
+model=new covoiturage();
 constructor(private act:ActivatedRoute,private app:AppComponent,private data:DataService) { }
 
   ngOnInit() {
@@ -28,7 +29,6 @@ formonoff(){
         this.formon = false;
     }
   ajouterCvt(){
-  this.model.event=this.id;
-  this.data.addCov(this.model).subscribe(()=> location.reload());
+  this.data.addCov(this.model,this.id).subscribe(()=> location.reload());
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent} from '../app.component';
 import { DataService} from '../data.service';
+import { event} from '../event';
 
 @Component({
   selector: 'app-search',
@@ -10,7 +11,7 @@ import { DataService} from '../data.service';
 export class SearchComponent implements OnInit {
 formon=false;
 events;
-model;
+model=new event();
   constructor(private app:AppComponent,private data:DataService) { }
 
   ngOnInit() {
@@ -20,7 +21,8 @@ model;
     });
   }
   ajouterEvt(){
-    this.data.addEvent(this.model).subscribe(()=> location.reload());
+    console.log(this.model);
+    this.data.addEvent(this.model).subscribe(()=> console.log('hii'),error => console.log(error));
   }
     formonoff(){
         this.formon = true;

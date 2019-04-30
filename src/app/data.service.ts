@@ -2,20 +2,22 @@ import { Injectable } from '@angular/core';
 import { getLocaleDateFormat } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TokenStorageService } from './auth/token-storage.service';
-
 import { Observable } from 'rxjs';
+import {SignUpInfo} from './auth/sigup-info';
+import {event} from './event';
+import {HttpParameterCodec} from '@angular/common/http';
+import {HttpParams} from '@angular/common/http';
+
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  actualites;
-  publications;
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
   constructor(private Http: HttpClient,private token: TokenStorageService) { }
-  getData(url): any {
-    return this.Http.get(url);
-  }
   getEvents() {
     return this.Http.get('http://localhost:8080/api/events');
   }
@@ -45,26 +47,13 @@ export class DataService {
   getPublicationspage(i) {
     return this.Http.get('http://localhost/Back/publicationpage.php?i=' + i);
   }
-  addEvent(obj) {
-
-    let body = new URLSearchParams();
-    body.set('name', obj.name);
-    body.set('music', obj.music);
-    body.set('place', obj.place);
-    body.set('startingTime', obj.startingTime);
-    body.set('endingTime', obj.endingTime);
-    body.set('description', obj.description);
-    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-    return this.Http.post<string>('http://localhost:8080/api/requests' , body.toString(), { headers, responseType: "text" as 'json' });
-  }
-  addCov(obj) {
-    let body = new URLSearchParams();
-    body.set('carsName', obj.carsName);
-    body.set('price', obj.price);
-    body.set('email', obj.meetingPlace);
-    body.set('eventid', obj.event);
-    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-    return this.Http.post<string>('http://localhost:8080/api/covoiturages', body.toString(), { headers, responseType: "text" as 'json' });
+  addEvent(obj: event): Observable<string> {
+      return this.Http.post<string>('http://localhost:8080/api/requests', obj, this.httpOptions);
+     }
+  addCov(obj,id): Observable<string> {
+   const head = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', 'eventid': id})
+    };    return this.Http.post<string>('http://localhost:8080/api/covoiturages', obj, head);
   }
   getContact() {
     return this.Http.get('http://localhost/Back/contact.php');
