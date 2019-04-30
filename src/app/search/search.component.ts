@@ -10,6 +10,7 @@ import { DataService} from '../data.service';
 export class SearchComponent implements OnInit {
 formon=false;
 events;
+model;
   constructor(private app:AppComponent,private data:DataService) { }
 
   ngOnInit() {
@@ -17,6 +18,9 @@ events;
       this.events = res;
       console.log(this.events);
     });
+  }
+  ajouterEvt(){
+    this.data.addEvent(this.model).subscribe(()=> location.reload());
   }
     formonoff(){
         this.formon = true;

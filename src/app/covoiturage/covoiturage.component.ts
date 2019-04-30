@@ -12,6 +12,7 @@ export class CovoiturageComponent implements OnInit {
 formon = false;
 covs;
 id;
+model;
 constructor(private act:ActivatedRoute,private app:AppComponent,private data:DataService) { }
 
   ngOnInit() {
@@ -26,4 +27,8 @@ formonoff(){
     formoffon(){
         this.formon = false;
     }
+  ajouterCvt(){
+  this.model.event=this.id;
+  this.data.addCov(this.model).subscribe(()=> location.reload());
+  }
 }

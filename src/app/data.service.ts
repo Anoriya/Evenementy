@@ -42,23 +42,26 @@ export class DataService {
   getPublicationspage(i) {
     return this.Http.get('http://localhost/Back/publicationpage.php?i=' + i);
   }
-  addMessage(obj) {
+  addEvent(obj) {
 
     let body = new URLSearchParams();
-    body.set('lastName', obj.lastName);
-    body.set('firstName', obj.firstName);
-    body.set('phone', obj.phone);
-    body.set('email', obj.email);
-    body.set('subject', obj.subject);
-    body.set('message', obj.message);
+    body.set('name', obj.name);
+    body.set('music', obj.music);
+    body.set('place', obj.place);
+    body.set('startingTime', obj.startingTime);
+    body.set('endingTime', obj.endingTime);
+    body.set('description', obj.description);
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-    return this.Http.post<string>('http://localhost/Back/get_responseContact.php', body.toString(), { headers, responseType: "text" as 'json' });
+    return this.Http.post<string>('http://localhost:8080/api/requests' , body.toString(), { headers, responseType: "text" as 'json' });
   }
-  addNewsletter(obj) {
+  addCov(obj) {
     let body = new URLSearchParams();
-    body.set('email', obj.email);
+    body.set('carsName', obj.carsName);
+    body.set('price', obj.price);
+    body.set('email', obj.meetingPlace);
+    body.set('eventid', obj.event);
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-    return this.Http.post<string>('http://localhost/Back/addNewsletter.php', body.toString(), { headers, responseType: "text" as 'json' });
+    return this.Http.post<string>('http://localhost:8080/api/covoiturages', body.toString(), { headers, responseType: "text" as 'json' });
   }
   getContact() {
     return this.Http.get('http://localhost/Back/contact.php');
