@@ -19,11 +19,11 @@ export class DataService {
   getEvents() {
     return this.Http.get('http://localhost:8080/api/events');
   }
-  getActualitespage(i) {
-    return this.Http.get('http://localhost/Back/actualitepage.php?i=' + i);
+  getEvent(id) {
+    return this.Http.get('http://localhost:8080/api/event/' + id);
   }
-  getActualitesnum() {
-    return this.Http.get('http://localhost/Back/actualitenum.php');
+  getCovsbyevent(id) {
+    return this.Http.get('http://localhost:8080/api/cov' + id);
   }
   getActualite(id) {
     console.log(id);

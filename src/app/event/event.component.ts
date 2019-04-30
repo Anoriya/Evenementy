@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import { DataService} from '../data.service';
 
 @Component({
   selector: 'app-event',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./event.component.scss']
 })
 export class EventComponent implements OnInit {
-
-  constructor() { }
+id;
+event;
+  constructor(private act:ActivatedRoute,private data:DataService) { }
 
   ngOnInit() {
+    this.id = this.act.snapshot.params['id'];
+    this.data.getEvent(this.id).subscribe(res => {
+      this.event = res[0];
+    });
   }
 
 }

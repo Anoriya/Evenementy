@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent} from '../app.component';
+import { DataService} from '../data.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-covoiturage',
@@ -8,9 +10,15 @@ import { AppComponent} from '../app.component';
 })
 export class CovoiturageComponent implements OnInit {
 formon = false;
-  constructor(private app:AppComponent) { }
+covs;
+id;
+constructor(private act:ActivatedRoute,private app:AppComponent,private data:DataService) { }
 
   ngOnInit() {
+    this.id = this.act.snapshot.params['id'];
+  this.data.getCovsbyevent(this.id).subscribe(res => {
+    this.covs = res;
+  });
   }
 formonoff(){
       this.formon = true;
