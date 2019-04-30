@@ -5,6 +5,7 @@ import { TokenStorageService } from './auth/token-storage.service';
 import { Observable } from 'rxjs';
 import {SignUpInfo} from './auth/sigup-info';
 import {event} from './event';
+import {user} from './user';
 import {HttpParameterCodec} from '@angular/common/http';
 import {HttpParams} from '@angular/common/http';
 
@@ -17,7 +18,7 @@ export class DataService {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
-  constructor(private Http: HttpClient,private token: TokenStorageService) { }
+  constructor(private Http: HttpClient, private token: TokenStorageService) { }
   getEvents() {
     return this.Http.get('http://localhost:8080/api/events');
   }
@@ -30,22 +31,26 @@ export class DataService {
   getCovsbyevent(id) {
     return this.Http.get('http://localhost:8080/api/covoiturageRelated/' + id);
   }
-  getActualite(id) {
-    console.log(id);
-    return this.Http.get('http://localhost/Back/get_actulite_by_id.php?id=' + id);
+  getEventsByMusic(key) {
+    return this.Http.get('http://localhost:8080/api/searchByMusic/' + key);
   }
-  getPublications() {
-    return this.Http.get('http://localhost/Back/publication.php');
+  getEventsByName(key) {
+    return this.Http.get('http://localhost:8080/api/searchByName/' + key);
   }
-  getPublication(id) {
-    console.log(id);
-    return this.Http.get('http://localhost/Back/get_pub_by_id.php?id=' + id);
+  getMyEventsByMusic(key) {
+    return this.Http.get('http://localhost:8080/api/eventsCreatedByMusic/' + key);
   }
-  getPublicationsnum() {
-    return this.Http.get('http://localhost/Back/publicationnum.php');
+  getMyEventsByName(key) {
+    return this.Http.get('http://localhost:8080/api/eventsCreatedByName/' + key);
   }
-  getPublicationspage(i) {
-    return this.Http.get('http://localhost/Back/publicationpage.php?i=' + i);
+  getUser() {
+    return this.Http.get('http://localhost:8080/api/currentUser');
+  }
+  getaUser(usr) {
+    return this.Http.get('http://localhost:8080/api/user/'+usr);
+  }
+  editprofile(obj: user): Observable<string> {
+    return this.Http.put<string>('http://localhost:8080/api/updateUser', obj, this.httpOptions);
   }
   addEvent(obj: event): Observable<string> {
       return this.Http.post<string>('http://localhost:8080/api/requests', obj, this.httpOptions);

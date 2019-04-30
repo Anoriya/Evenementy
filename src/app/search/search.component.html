@@ -3,9 +3,9 @@
   <button class="navbar-brand btn btn-primary" *ngIf="app.authority" (click)="formonoff()">New Event</button>
   <form class="form-inline">
     <label>search with : </label>
-    <select class="form-control mr-sm-2"><option>genre</option><option>name</option></select>
-    <input class="form-control mr-sm-2" type="search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <select class="form-control mr-sm-2"><option value="music" (click)="setmusic()">music</option><option (click)="setname()" value="name">name</option></select>
+    <input class="form-control mr-sm-2" type="search" aria-label="Search" [(ngModel)]="key">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="search()">Search</button>
   </form>
 </nav>
 

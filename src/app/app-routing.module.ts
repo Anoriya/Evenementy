@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'search', component : SearchComponent},
   { path: 'event/:id', component : EventComponent},
   { path: 'cov/:id', component : CovoiturageComponent},
-  { path: 'profile', component : ProfileComponent},
+  { path: 'profile/:usr', component : ProfileComponent},
   { path: 'myprofile', component : MyProfileComponent},
   { path: 'edit', component : EditProfileComponent},
   { path: 'contact', component : ContactComponent},

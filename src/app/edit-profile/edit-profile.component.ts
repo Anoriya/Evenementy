@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DataService} from '../data.service';
+import {user} from '../user';
 
 @Component({
   selector: 'app-edit-profile',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditProfileComponent implements OnInit {
 formon=false;
-  constructor() { }
+model=new user();
+user;
+  constructor(private data:DataService) { }
 
   ngOnInit() {
+    this.data.getUser().subscribe(res => {
+      this.user = res;
+    });
+  }
+  editprofile(){
+    this.data.editprofile(this.model).subscribe(res => {
+      console.log();
+    });
   }
     formonoff(){
         this.formon = true;

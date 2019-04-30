@@ -11,6 +11,8 @@ export class MyProfileComponent implements OnInit {
   pub=true;
   events;
   model;
+  filtre='music';
+  key;
   constructor(private data:DataService) { }
 
   ngOnInit() {
@@ -18,6 +20,19 @@ export class MyProfileComponent implements OnInit {
       this.events = res;
       console.log(this.events);
     });
+  }
+  setmusic(){this.filtre='music';}
+  setname(){this.filtre='name';}
+  search(){
+    if(this.filtre=='music'){
+      this.data.getMyEventsByMusic(this.key).subscribe(res => {
+        this.events = res;
+        console.log(this.events);
+      });}
+    else {this.data.getMyEventsByName(this.key).subscribe(res => {
+      this.events = res;
+      console.log(this.events);
+    });}
   }
   ajouterEvt(){
     this.data.addEvent(this.model).subscribe(()=> location.reload());
