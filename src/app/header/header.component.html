@@ -3,29 +3,44 @@
     <!-- ################################################################################################ -->
     <div class="fl_left">
       <ul>
-        <li [ngStyle]="{'margin-top':user== true ? '18px' : '0px'}"><i class="fa fa-phone"></i> +256 71 456 890</li>
+        <li [ngStyle]="{'margin-top':app.authority ? '18px' : '0px'}"><i class="fa fa-phone"></i> +256 71 456 890</li>
         <li><i class="fa fa-envelope-o"></i> evenemenety@gmail.com</li>
       </ul>
     </div>
     <div class="fl_right">
       <ul>
         <li><a routerLink="/"><i class="fa fa-lg fa-home"></i></a></li>
-        <li *ngIf="!user"><a routerLink="/login">Login</a></li>
-        <li *ngIf="!user"><a routerLink="/register">Register</a></li>
-       <li *ngIf="user"><div class="wrapper row2">
+        <li *ngIf="!app.authority"><a routerLink="/login">Login</a></li>
+        <li *ngIf="!app.authority"><a routerLink="/register">Register</a></li>
+       <li *ngIf="app.authority === 'user'"><div class="wrapper row2">
          <nav id="mainav" class="hoc clear">
            <ul class="clear">
              <li><a class="drop" routerLink="/myprofile">Profile</a>
-               <ul>
-                 <li><a routerLink="/myprofile">My Events</a></li>
-                 <li><a routerLink="/edit">Edit My Account</a></li>
-                 <li><a href="#">Log Out</a></li>
+               <ul >
+                 <li><a  style="color: #F4F4F4" routerLink="/myprofile">My Events</a></li>
+                 <li><a style="color: #F4F4F4" routerLink="/edit">Edit My Account</a></li>
+                 <li><a style="color: #F4F4F4" (click)="logout()">Log Out</a></li>
                </ul>
              </li>
            </ul>
          </nav>
        </div>
     </li>
+        <li *ngIf="app.authority === 'admin'"><div class="wrapper row2">
+          <nav id="mainav" class="hoc clear">
+            <ul class="clear">
+              <li><a class="drop" routerLink="/admin">admin</a>
+                <ul>
+                  <li><a style="color: #F4F4F4" routerLink="/admin">Edit Events</a></li>
+                  <li><a style="color: #F4F4F4" routerLink="/adminaccount">Edit Accounts</a></li>
+                  <li><a style="color: #F4F4F4" routerLink="/mailbox">Mail Box</a></li>
+                  <li><a style="color: #F4F4F4" (click)="logout()">Log Out</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        </li>
       </ul>
     </div>
     <!-- ################################################################################################ -->

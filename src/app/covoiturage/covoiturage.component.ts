@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent} from '../app.component';
 
 @Component({
   selector: 'app-covoiturage',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CovoiturageComponent implements OnInit {
 formon = false;
-  constructor() { }
+  constructor(private app:AppComponent) { }
 
   ngOnInit() {
   }

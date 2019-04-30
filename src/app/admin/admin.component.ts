@@ -7,19 +7,15 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
-  board: string;
-  errorMessage: string;
-
+formon=false;
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.getAdminBoard().subscribe(
-      data => {
-        this.board = data;
-      },
-      error => {
-        this.errorMessage = `${error.status}: ${JSON.parse(error.error).message}`;
-      }
-    );
+  }
+  formonoff(){
+    this.formon = true;
+  }
+  formoffon(){
+    this.formon = false;
   }
 }

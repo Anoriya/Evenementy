@@ -15,8 +15,8 @@ export class DataService {
   getData(url): any {
     return this.Http.get(url);
   }
-  getActualites() {
-    return this.Http.get('http://localhost/Back/actualite.php');
+  getEvents() {
+    return this.Http.get('http://localhost:8080/api/events');
   }
   getActualitespage(i) {
     return this.Http.get('http://localhost/Back/actualitepage.php?i=' + i);

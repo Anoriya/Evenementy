@@ -24,6 +24,8 @@ import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 import { PmComponent } from './pm/pm.component';
 import { AdminComponent } from './admin/admin.component';
+import { DataService} from './data.service';
+import { EditaccountsComponent } from './editaccounts/editaccounts.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { AdminComponent } from './admin/admin.component';
     HomeComponent,
     UserComponent,
     PmComponent,
-    AdminComponent
+    AdminComponent,
+    EditaccountsComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,7 @@ import { AdminComponent } from './admin/admin.component';
     HttpClientModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [httpInterceptorProviders],
+  providers: [httpInterceptorProviders, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

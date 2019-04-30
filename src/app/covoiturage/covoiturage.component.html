@@ -1,6 +1,6 @@
 <div class="p-5" *ngIf="!formon">
   <nav class="navbar navbar-light bg-light justify-content-between">
-    <button class="navbar-brand btn btn-primary" (click)="formonoff()">Add Covoiturage</button>
+    <button class="navbar-brand btn btn-primary" *ngIf="app.authority" (click)="formonoff()">Add Covoiturage</button>
     <form class="form-inline">
       <input class="form-control mr-sm-2" type="search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -11,7 +11,7 @@
     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">List group item heading</h5>
-        <small class="btn">s'inscrire</small>
+        <small class="btn" *ngIf="app.authority" >s'inscrire</small>
       </div>
       <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
       <small>Donec id elit non mi porta.</small>
@@ -19,7 +19,7 @@
     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">List group item heading</h5>
-        <small class="btn">s'inscrire</small>
+        <small class="btn" *ngIf="app.authority" >s'inscrire</small>
       </div>
       <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
       <small class="text-muted">Donec id elit non mi porta.</small>
@@ -27,7 +27,7 @@
     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">List group item heading</h5>
-        <small class="btn">s'inscrire</small>
+        <small class="btn" *ngIf="app.authority" >s'inscrire</small>
       </div>
       <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
       <small class="text-muted">Donec id elit non mi porta.</small>
