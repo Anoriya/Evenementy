@@ -8,7 +8,7 @@
   </nav>
 </div></div>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
@@ -19,7 +19,7 @@
       </li>
     </ul>
   </div>
-</nav>
+</nav>-->
 <div *ngIf="pub">
   <div class="p-5" *ngIf="!formon">
     <nav class="navbar navbar-light bg-light justify-content-between">
@@ -33,35 +33,21 @@
     </nav>
 
     <div class="list-group">
-      <a routerLink="/event" class="list-group-item list-group-item-action flex-column align-items-start ">
+      <div *ngFor="let event of events" style="cursor:pointer" routerLink="/event/{{event.id}}" class="list-group-item list-group-item-action flex-column align-items-start ">
         <div style="display: -webkit-inline-box"><img style="width: 200px" src="../../assets/images/big/img1.jpg">
           <div style="margin-left: 20px"><div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">List group item heading</h5>
+            <h5 class="mb-1">{{event.name}}</h5>
           </div>
             <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-            <small>Donec id elit non mi porta.</small></div><small style="margin-left: 450px">3 days ago</small></div>
-      </a>
-      <a routerLink="/event" class="list-group-item list-group-item-action flex-column align-items-start ">
-        <div style="display: -webkit-inline-box"><img style="width: 200px" src="../../assets/images/big/img1.jpg">
-          <div style="margin-left: 20px"><div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">List group item heading</h5>
-          </div>
-            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-            <small>Donec id elit non mi porta.</small></div><small style="margin-left: 450px">3 days ago</small></div>
-      </a>
-      <a routerLink="/event" class="list-group-item list-group-item-action flex-column align-items-start ">
-        <div style="display: -webkit-inline-box"><img style="width: 200px" src="../../assets/images/big/img1.jpg">
-          <div style="margin-left: 20px"><div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">List group item heading</h5>
-          </div>
-            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-            <small>Donec id elit non mi porta.</small></div><small style="margin-left: 450px">3 days ago</small></div>
-      </a>
+            <p class="mb-1">Music:{{event.music}}</p>
+            <div><small routerLink="/profile">{{event.starting_time}}</small></div><br><div><small routerLink="/profile">{{event.user.name}}</small></div></div><small style="margin-left: 450px">3 days ago</small></div>
+
+      </div>
     </div>
   </div>
 
   <!----------------   Formulaire Ajout evenement commence ici  --------------->
-  <div *ngIf="formon"><div style="position: absolute;width: 50px"><a (click)="formoffon()&&puboffon()"><img src="../../assets/images/39764.png"></a></div>
+  <div *ngIf="formon"><div style="position: absolute;width: 50px"><a (click)="formoffon()"><img src="../../assets/images/39764.png"></a></div>
     <div id="Form" style="text-align: -webkit-center">
       <div class="panel panel-default">
         <div class="panel-body">
@@ -71,21 +57,41 @@
             <div class="form-group">
               <label  class="col-sm-4 control-label">titre</label>
               <div class="col-sm-4">
-                <input type="text" class="form-control" name="titre" placeholder="titre" [(ngModel)]="model.titre"  required>
+                <input type="text" class="form-control" name="titre" placeholder="titre" [(ngModel)]="model.name"  required>
               </div>
             </div>
 
             <div class="form-group">
-              <label  class="col-sm-4 control-label">Date</label>
+              <label  class="col-sm-4 control-label">music</label>
               <div class="col-sm-4">
-                <input type="date" class="form-control" name="dh" placeholder="Date d'admission"  [(ngModel)]="model.datee" required>
+                <input type="text" class="form-control" name="titre" placeholder="titre" [(ngModel)]="model.music"  required>
               </div>
             </div>
 
+            <div class="form-group">
+              <label  class="col-sm-4 control-label">place</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" name="titre" placeholder="titre" [(ngModel)]="model.place"  required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label  class="col-sm-4 control-label">Starting Time</label>
+              <div class="col-sm-4">
+                <input type="date" class="form-control" name="dh" placeholder="Date d'admission"  [(ngModel)]="model.startingTime" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label  class="col-sm-4 control-label">Ending Time</label>
+              <div class="col-sm-4">
+                <input type="date" class="form-control" name="dh" placeholder="Date d'admission"  [(ngModel)]="model.endingTime" required>
+              </div>
+            </div>
             <div class="form-group">
               <label  class="col-sm-4 control-label">Description</label>
               <div class="col-sm-4">
-                <input type="text" class="form-control" name="contenu" placeholder="contenu"  [(ngModel)]="model.contenu" required>
+                <input type="text" class="form-control" name="contenu" placeholder="contenu"  [(ngModel)]="model.description" required>
               </div>
             </div>
 
@@ -104,10 +110,12 @@
           </form>
         </div>
       </div>
-    </div></div></div>
+    </div></div>
+
+</div>
 
 
-<!----------------  aa  --------------->
+<!----------------
 <div *ngIf="!pub"><div class="p-5">
   <nav class="navbar navbar-light bg-light justify-content-between">
     <form class="form-inline">
@@ -144,4 +152,4 @@
           <small>Donec id elit non mi porta.</small></div><small style="margin-left: 450px">3 days ago</small></div>
     </a>
   </div>
-</div></div>
+</div></div>  --------------->

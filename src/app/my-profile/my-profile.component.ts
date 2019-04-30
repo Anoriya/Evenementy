@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService} from '../data.service';
 
 @Component({
   selector: 'app-my-profile',
@@ -8,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 export class MyProfileComponent implements OnInit {
   formon=false;
   pub=true;
-  constructor() { }
+  events;
+  model;
+  constructor(private data:DataService) { }
 
   ngOnInit() {
+    this.data.getMyEvents().subscribe(res => {
+      this.events = res;
+      console.log(this.events);
+    });
+  }
+  ajouterEvt(){
+    this.data.addEvent(this.model).subscribe(()=> location.reload());
   }
   formonoff(){
     this.formon = true;

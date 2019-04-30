@@ -19,6 +19,9 @@ export class DataService {
   getEvents() {
     return this.Http.get('http://localhost:8080/api/events');
   }
+  getMyEvents() {
+    return this.Http.get('http://localhost:8080/api/eventsCreated');
+  }
   getEvent(id) {
     return this.Http.get('http://localhost:8080/api/event/' + id);
   }
