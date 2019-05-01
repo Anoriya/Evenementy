@@ -3,6 +3,9 @@ import { UserService } from '../services/user.service';
 import { event} from '../event';
 import {AppComponent} from '../app.component';
 import {DataService} from '../data.service';
+import {HttpHeaders} from '@angular/common/http';
+import {HttpParams} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-admin',
@@ -16,7 +19,7 @@ model=new event();
 filtre='music';
 key;
   fileList: FileList;
-constructor(private app:AppComponent,private data:DataService) { }
+constructor(private app:AppComponent,private data:DataService,private Http:HttpClient) { }
 
 ngOnInit() {
   this.data.getEvents().subscribe(res => {
@@ -33,8 +36,7 @@ deletevent(id){
 setvalue(h){this.filtre=h;}
 setkey(h){this.key=h;}
 ajouterEvt(){
-  console.log(this.model);
-  this.data.addImage(this.fileList.file).subscribe(()=> console.log("ok"),error => console.log(error));
+  this.fileupload();
   this.data.addEvent(this.model).subscribe(()=> location.reload(),error => console.log(error));
 }
 formonoff(){
@@ -58,5 +60,27 @@ search(){
   fileChange(event) {
     this.fileList = event.target.files;
     this.model.imageUrl=this.fileList[0].name;
+  }
+  fileupload(){
+    if(this.fileList.length > 0) {
+      let file: File = this.fileList[0];
+      let formData:FormData = new FormData();
+      formData.append('uploadFile', file, file.name);
+      let headers = new HttpHeaders();
+      /** In Angular 5, including the header Content-Type can invalidate your request */
+      headers.append('Content-Type', 'multipart/form-data');
+      headers.append('Accept', 'application/json');
+      //  let options = new RequestOptions({ headers: headers });
+      const options = {
+        params: new HttpParams(),
+        headers:  headers
+      };
+      this.Http.post(`http://localhost:8080/api/files`, formData, options)
+
+        .subscribe(
+          data => console.log('success'),
+          error => console.log(error)
+        );
+    }
   }
 }
