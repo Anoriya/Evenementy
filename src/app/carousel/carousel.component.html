@@ -3,27 +3,14 @@
     <div class="card" style="margin: 0 auto">
       <div class="card-body">
         <ngb-carousel>
-          <ng-template ngbSlide>
-            <a routerLink="event"><img src="assets/images/big/img1.jpg" alt="Random first slide"></a>
+          <div *ngFor="let event of events">
+          <ng-template ngbSlide >
+            <a routerLink="event"><img src="http://localhost/photos/{{event.imageUrl}}" alt="Random first slide"></a>
                    <div class="carousel-caption">
-              <h3 class="text-white font-bold">PostRock</h3>
-              <p>Metalheads united</p>
+              <h3 class="text-white font-bold">{{event.name}}</h3>
+              <p>{{event.description}}</p>
             </div>
-          </ng-template>
-          <ng-template ngbSlide>
-            <img src="assets/images/big/img2.jpg" alt="Random second slide">
-            <div class="carousel-caption">
-              <h3 class="text-white font-bold">GreenWaves</h3>
-              <p>Come and chill in nature on techno vibes</p>
-            </div>
-          </ng-template>
-          <ng-template ngbSlide>
-            <img src="assets/images/big/img3.jpg" alt="Random third slide">
-            <div class="carousel-caption">
-              <h3 class="text-white font-bold">Mama Africa</h3>
-              <p>Become one with nature</p>
-            </div>
-          </ng-template>
+          </ng-template></div>
         </ngb-carousel>
       </div>
     </div>

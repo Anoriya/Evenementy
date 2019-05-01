@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import {DataService} from '../data.service';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 @Component({
@@ -12,8 +13,8 @@ export class CarouselComponent implements OnInit {
 
   showNavigationArrows = false;
   showNavigationIndicators = false;
-
-  constructor(config: NgbCarouselConfig) {
+events;
+  constructor(config: NgbCarouselConfig,private data:DataService) {
     // customize default values of carousels used by this component tree
     config.interval = 10000;
     config.wrap = true;
@@ -23,6 +24,9 @@ export class CarouselComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.data.getEvents().subscribe(res => {
+      this.events = res;
+    });
   }
 
 }

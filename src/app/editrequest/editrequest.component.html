@@ -10,7 +10,7 @@
 
   <div class="list-group">
     <div *ngFor="let req of reqs" style="cursor:pointer" routerLink="/req/{{req.id}}" class="list-group-item list-group-item-action flex-column align-items-start ">
-      <div style="display: -webkit-inline-box"><img style="width: 200px" src="../../assets/images/big/img1.jpg">
+      <div style="display: -webkit-inline-box"><img style="width: 200px" src="http://localhost/photos/{{req.imageUrl}}">
         <div style="margin-left: 20px"><div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1">{{req.name}}</h5>
         </div>

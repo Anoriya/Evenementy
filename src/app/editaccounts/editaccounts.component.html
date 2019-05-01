@@ -10,7 +10,7 @@
 
   <div class="list-group">
     <div *ngFor="let user of users" style="cursor:pointer" routerLink="/profile/{{user.id}}" class="list-group-item list-group-item-action flex-column align-items-start ">
-      <div style="display: -webkit-inline-box"><img style="width: 200px" src="../../assets/images/big/img1.jpg">
+      <div style="display: -webkit-inline-box"><img style="width: 200px" src="http://localhost/photos/{{user.imageUrl}}">
         <div style="margin-left: 20px"><div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1">{{user.username}}</h5>
         </div>
