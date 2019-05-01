@@ -17,12 +17,11 @@ key;
       console.log(res);
     });
   }
-  setkey(h){this.key=h;}
+  setkey(h){this.key = h;}
+
   search(){
       this.data.getUsersByUsr(this.key).subscribe(res => {
         this.users = res;
-        console.log(res);
-        console.log(this.key);
       });
   }
   deleteuser(usr){
