@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService} from '../data.service';
+import {event} from '../event';
 
 @Component({
   selector: 'app-my-profile',
@@ -10,7 +11,7 @@ export class MyProfileComponent implements OnInit {
   formon=false;
   pub=true;
   events;
-  model;
+  model=new event();
   filtre='music';
   key;
   constructor(private data:DataService) { }
@@ -21,8 +22,8 @@ export class MyProfileComponent implements OnInit {
       console.log(this.events);
     });
   }
-  setmusic(){this.filtre='music';}
-  setname(){this.filtre='name';}
+  setvalue(h){this.filtre=h;}
+  setkey(h){this.key=h;}
   search(){
     if(this.filtre=='music'){
       this.data.getMyEventsByMusic(this.key).subscribe(res => {
@@ -35,7 +36,8 @@ export class MyProfileComponent implements OnInit {
     });}
   }
   ajouterEvt(){
-    this.data.addEvent(this.model).subscribe(()=> location.reload());
+    console.log(this.model);
+    this.data.addEvent(this.model).subscribe(()=> location.reload(),error => console.log(error));
   }
   formonoff(){
     this.formon = true;

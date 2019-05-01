@@ -14,7 +14,8 @@ events;
 model=new event();
 filtre='music';
 key;
-  constructor(private app:AppComponent,private data:DataService) { }
+
+constructor(private app:AppComponent,private data:DataService) { }
 
   ngOnInit() {
     this.data.getEvents().subscribe(res => {
@@ -22,11 +23,11 @@ key;
       console.log(this.events);
     });
   }
-  setmusic(){this.filtre='music';}
-  setname(){this.filtre='name';}
+  setvalue(h){this.filtre=h;}
+  setkey(h){this.key=h;}
   ajouterEvt(){
     console.log(this.model);
-    this.data.addEvent(this.model).subscribe(()=> console.log('hii'),error => console.log(error));
+    this.data.addEvent(this.model).subscribe(()=> location.reload(),error => console.log(error));
   }
     formonoff(){
         this.formon = true;
@@ -38,11 +39,12 @@ key;
     if(this.filtre=='music'){
       this.data.getEventsByMusic(this.key).subscribe(res => {
         this.events = res;
-        console.log(this.events);
+        console.log(res);
+        console.log(this.key);
       });}
     else {this.data.getEventsByName(this.key).subscribe(res => {
       this.events = res;
-      console.log(this.events);
+      console.log(res);
     });}
     }
   }

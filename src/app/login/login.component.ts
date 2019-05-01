@@ -43,8 +43,6 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getAuthorities();
-        this.router.navigate(['/carousel']) ;
-        this.roles = this.tokenStorage.getAuthorities();
         this.roles.every(role => {
           if (role === 'ROLE_ADMIN') {
             this.app.authority = 'admin';
@@ -52,7 +50,7 @@ export class LoginComponent implements OnInit {
           } else {this.app.authority = 'user';
             return true;}
         });
-        this.router.navigate(['/search']);
+        this.router.navigate(['/']);
       },
       error => {
         console.log(error);

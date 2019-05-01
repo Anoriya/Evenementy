@@ -1,40 +1,23 @@
 <div style="text-align: center"><h3>Admin Board</h3></div><div class="p-5" *ngIf="!formon">
   <nav class="navbar navbar-light bg-light justify-content-between">
-    <button class="navbar-brand btn btn-primary" (click)="formonoff()">New Event</button>
+    <button class="navbar-brand btn btn-primary" *ngIf="app.authority" (click)="formonoff()">New Event</button>
     <form class="form-inline">
       <label>search with : </label>
-      <select class="form-control mr-sm-2"><option>genre</option><option>name</option></select>
-      <input class="form-control mr-sm-2" type="search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <select class="form-control mr-sm-2" #t (change)="setvalue(t.value)"><option value="music">music</option><option value="name">name</option></select>
+      <input class="form-control mr-sm-2" #s type="search" (change)="setkey(s.value)" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="search()">Search</button>
     </form>
   </nav>
 
   <div class="list-group">
-    <div style="cursor:pointer" routerLink="/event" class="list-group-item list-group-item-action flex-column align-items-start ">
+    <div *ngFor="let event of events" style="cursor:pointer" routerLink="/event/{{event.id}}" class="list-group-item list-group-item-action flex-column align-items-start ">
       <div style="display: -webkit-inline-box"><img style="width: 200px" src="../../assets/images/big/img1.jpg">
         <div style="margin-left: 20px"><div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">Event Name</h5>
+          <h5 class="mb-1">{{event.name}}</h5>
         </div>
           <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-          <div><small routerLink="/profile">8/5/2019</small></div><br><div><small routerLink="/profile">By User</small></div></div><small style="margin-left: 450px">3 days ago</small></div>
-
-    </div>
-    <div style="cursor:pointer" routerLink="/event" class="list-group-item list-group-item-action flex-column align-items-start ">
-      <div style="display: -webkit-inline-box"><img style="width: 200px" src="../../assets/images/big/img1.jpg">
-        <div style="margin-left: 20px"><div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">Event Name</h5>
-        </div>
-          <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-          <div><small routerLink="/profile">8/5/2019</small></div><br><div><small routerLink="/profile">By User</small></div></div><small style="margin-left: 450px">3 days ago</small></div>
-
-    </div>
-    <div style="cursor:pointer" routerLink="/event" class="list-group-item list-group-item-action flex-column align-items-start ">
-      <div style="display: -webkit-inline-box"><img style="width: 200px" src="../../assets/images/big/img1.jpg">
-        <div style="margin-left: 20px"><div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">Event Name</h5>
-        </div>
-          <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-          <div><small routerLink="/profile">8/5/2019</small></div><br><div><small routerLink="/profile">By User</small></div></div><small style="margin-left: 450px">3 days ago</small></div>
+          <p class="mb-1">Music:{{event.music}}</p>
+          <div><small routerLink="/profile">{{event.starting_time}}</small></div><br><div><small routerLink="/profile">{{event.user.name}}</small></div></div><small style="margin-left: 450px">3 days ago</small></div>
 
     </div>
   </div>
@@ -45,27 +28,47 @@
   <div id="Form" style="text-align: -webkit-center">
     <div class="panel panel-default">
       <div class="panel-body">
-        <form class="form-horizontal" enctype="multipart/form-data" (submit)="ajouterEvt()">
+        <form class="form-horizontal" enctype="multipart/form-data">
 
 
           <div class="form-group">
-            <label  class="col-sm-4 control-label">titre</label>
+            <label  class="col-sm-4 control-label">name</label>
             <div class="col-sm-4">
-              <input type="text" class="form-control" name="titre" placeholder="titre" [(ngModel)]="model.titre"  required>
+              <input type="text" class="form-control" name="name" placeholder="name" value="" [(ngModel)]="model.name"  required>
             </div>
           </div>
 
           <div class="form-group">
-            <label  class="col-sm-4 control-label">Date</label>
+            <label  class="col-sm-4 control-label">music</label>
             <div class="col-sm-4">
-              <input type="date" class="form-control" name="dh" placeholder="Date d'admission"  [(ngModel)]="model.datee" required>
+              <input type="text" class="form-control" name="music" placeholder="music" [(ngModel)]="model.music"  required>
             </div>
           </div>
 
+          <div class="form-group">
+            <label  class="col-sm-4 control-label">place</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" name="place" placeholder="place" [(ngModel)]="model.place"  required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label  class="col-sm-4 control-label">Starting Time</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" name="st" placeholder="Starting Time"  [(ngModel)]="model.startingTime" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label  class="col-sm-4 control-label">Ending Time</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" name="et" placeholder="Ending Time"  [(ngModel)]="model.endingTime" required>
+            </div>
+          </div>
           <div class="form-group">
             <label  class="col-sm-4 control-label">Description</label>
             <div class="col-sm-4">
-              <input type="text" class="form-control" name="contenu" placeholder="contenu"  [(ngModel)]="model.contenu" required>
+              <input type="text" class="form-control" name="description" placeholder="Description"  [(ngModel)]="model.description" required>
             </div>
           </div>
 
@@ -78,7 +81,7 @@
 
           <div class="form-group">
             <div class="col-sm-offset-4 col-sm-10">
-              <button type="submit" name="ok" class="btn btn-primary">Ajouter evenement</button>
+              <button name="ok" class="btn btn-primary" (click)="ajouterEvt()"> Ajouter evenement</button>
             </div>
           </div>
         </form>

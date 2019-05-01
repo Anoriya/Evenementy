@@ -16,11 +16,16 @@ user;
   ngOnInit() {
     this.data.getUser().subscribe(res => {
       this.user = res;
+      this.model=this.user;
+      console.log(this.model);
+      console.log(this.user);
     });
   }
   editprofile(){
+    console.log(this.model);
     this.data.editprofile(this.model).subscribe(res => {
-      console.log();
+      console.log(this.model);
+      location.reload()
     });
   }
     formonoff(){
