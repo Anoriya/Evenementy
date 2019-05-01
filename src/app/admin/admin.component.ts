@@ -62,7 +62,7 @@ search(){
     this.model.imageUrl=this.fileList[0].name;
   }
   fileupload(){
-    if(this.fileList.length > 0) {
+
       let file: File = this.fileList[0];
       let formData:FormData = new FormData();
       formData.append('uploadFile', file, file.name);
@@ -82,5 +82,5 @@ search(){
           error => console.log(error)
         );
     }
-  }
+
 }
