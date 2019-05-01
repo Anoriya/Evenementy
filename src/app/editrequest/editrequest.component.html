@@ -1,0 +1,23 @@
+<div style="text-align: center"><h3>Admin Board</h3></div><div class="p-5">
+  <nav class="navbar navbar-light bg-light justify-content-between">
+    <form class="form-inline">
+      <label>search with : </label>
+      <select class="form-control mr-sm-2" #t (change)="setvalue(t.value)"><option value="music">music</option><option value="name">name</option></select>
+      <input class="form-control mr-sm-2" #s type="search" (change)="setkey(s.value)" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="search()">Search</button>
+    </form>
+  </nav>
+
+  <div class="list-group">
+    <div *ngFor="let req of reqs" style="cursor:pointer" routerLink="/req/{{req.id}}" class="list-group-item list-group-item-action flex-column align-items-start ">
+      <div style="display: -webkit-inline-box"><img style="width: 200px" src="../../assets/images/big/img1.jpg">
+        <div style="margin-left: 20px"><div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{req.name}}</h5>
+        </div>
+          <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+          <p class="mb-1">Music:{{req.music}}</p>
+          <div><small>{{req.starting_time}}</small></div><br><div><small routerLink="/profile">{{req.user.name}}</small></div></div><small style="margin-left: 450px">3 days ago</small><br><button (click)="acceptevent(req.id)" style="margin-left: 400px" class="btn btn-danger">accept</button> <br><button (click)="deletevent(req.id)" style="margin-left: 400px;margin-top: 20px" class="btn btn-danger">delete</button></div>
+
+    </div>
+  </div>
+</div>

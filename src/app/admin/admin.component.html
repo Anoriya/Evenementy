@@ -1,6 +1,6 @@
 <div style="text-align: center"><h3>Admin Board</h3></div><div class="p-5" *ngIf="!formon">
   <nav class="navbar navbar-light bg-light justify-content-between">
-    <button class="navbar-brand btn btn-primary" *ngIf="app.authority" (click)="formonoff()">New Event</button>
+    <button class="navbar-brand btn btn-primary" (click)="formonoff()">New Event</button>
     <form class="form-inline">
       <label>search with : </label>
       <select class="form-control mr-sm-2" #t (change)="setvalue(t.value)"><option value="music">music</option><option value="name">name</option></select>
@@ -17,7 +17,7 @@
         </div>
           <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
           <p class="mb-1">Music:{{event.music}}</p>
-          <div><small routerLink="/profile">{{event.starting_time}}</small></div><br><div><small routerLink="/profile">{{event.user.name}}</small></div></div><small style="margin-left: 450px">3 days ago</small></div>
+          <div><small routerLink="/profile">{{event.starting_time}}</small></div><br><div><small routerLink="/profile">{{event.user.name}}</small></div></div><small style="margin-left: 450px">3 days ago</small><br><button (click)="deletevent(event.id)" style="margin-left: 400px" class="btn btn-danger">delete</button> </div>
 
     </div>
   </div>

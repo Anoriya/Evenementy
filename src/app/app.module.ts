@@ -26,6 +26,8 @@ import { PmComponent } from './pm/pm.component';
 import { AdminComponent } from './admin/admin.component';
 import { DataService} from './data.service';
 import { EditaccountsComponent } from './editaccounts/editaccounts.component';
+import { EditrequestComponent } from './editrequest/editrequest.component';
+import { MailboxComponent } from './mailbox/mailbox.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { EditaccountsComponent } from './editaccounts/editaccounts.component';
     UserComponent,
     PmComponent,
     AdminComponent,
-    EditaccountsComponent
+    EditaccountsComponent,
+    EditrequestComponent,
+    MailboxComponent
   ],
   imports: [
     BrowserModule,

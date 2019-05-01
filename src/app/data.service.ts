@@ -43,6 +43,12 @@ export class DataService {
   getMyEventsByName(key) {
     return this.Http.get('http://localhost:8080/api/eventsCreatedByName/' + key);
   }
+  getReqsByMusic(key) {
+    return this.Http.get('http://localhost:8080/api/searchRequestByMusic/' + key);
+  }
+  getReqsByName(key) {
+    return this.Http.get('http://localhost:8080/api/searchRequestByName/' + key);
+  }
   getUser() {
     return this.Http.get('http://localhost:8080/api/currentUser');
   }
@@ -60,72 +66,39 @@ export class DataService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json', 'eventid': id})
     };    return this.Http.post<string>('http://localhost:8080/api/covoiturages', obj, head);
   }
-  getContact() {
-    return this.Http.get('http://localhost/Back/contact.php');
+  deletevent(id) {
+    return this.Http.delete('http://localhost:8080/api/deleteEvent/' + id);
+  }
+  deletereq(id) {
+    return this.Http.delete('http://localhost:8080/api/deleteRequest/' + id);
   }
 
-  isLogged(data: any) {
-    return this.Http.post('http://localhost/Back/login.php', data);
+  getUsers() {
+    return this.Http.get('http://localhost:8080/api/users');
 
   }
 
-
-  getPhoto(url): any {
-    return this.Http.get(url);
-  }
-
-
-  ajouterPublication(info) {
-    return this.Http.post("http://localhost/Back/ajouterPublication.php", info);
+  deleteuser(usr): any {
+    return this.Http.delete('http://localhost:8080/api/deleteUser/' + usr);
   }
 
 
-  modifierPublication(info) {
-    return this.Http.post("http://localhost/Back/modifierPublication.php", info);
+  getReqs() {
+    return this.Http.get('http://localhost:8080/api/requests');
   }
 
-  supprimerPublication(id) {
-    return this.Http.post("http://localhost/Back/supprimerPublication.php/", { 'id': id })
+  acceptreq(id) {
+    return this.Http.get('http://localhost:8080/api/requestMerge/' + id);
   }
 
-
-  ajouterActualite(info) {
-    return this.Http.post("http://localhost/Back/ajouterActualite.php", info);
-  }
-  modifierActualite(info) {
-    return this.Http.post("http://localhost/Back/modifierActualite.php", info);
-  }
-  supprimerActualite(id) {
-    return this.Http.post("http://localhost/Back/supprimerActualite.php/", { 'id': id })
+  getUsersByUsr(usr) {
+    return this.Http.get('http://localhost:8080/api/searchByUsername/' + usr);
   }
 
-  getInfoContact(id) {
-    return this.Http.get('http://localhost/Back/infocontact.php?id=' + id);
-  }
-  modifierInfoContact(info) {
-    return this.Http.post("http://localhost/Back/modifierInfoContact.php", info);
-  }
-  getMessages() {
-    return this.Http.get('http://localhost/Back/messages.php');
-  }
   getMails() {
-    return this.Http.get('http://localhost/Back/mails.php');
+    return this.Http.get('http://localhost:8080/api/mails');
   }
-  getMessage(id) {
-    return this.Http.get('http://localhost/Back/getmessage.php?id=' + id);
-  }
-  getMessagespage(id) {
-    return this.Http.get('http://localhost/Back/messagespage.php?id=' + id);
-  }
-  getMessagessnum() {
-    return this.Http.get('http://localhost/Back/messagesnum.php');
-  }
-  getMailspage(id) {
-    return this.Http.get('http://localhost/Back/mailspage.php?id=' + id);
-  }
-  getMailsnum() {
-    return this.Http.get('http://localhost/Back/mailsnum.php');
-  }
+
   addImage(fd) {
     return this.Http.post('http://localhost/Back/addFile.php', fd, {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),

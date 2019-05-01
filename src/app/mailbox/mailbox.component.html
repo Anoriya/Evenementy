@@ -1,0 +1,21 @@
+
+<div style="text-align: center"><h3>Admin Board</h3></div><div class="p-5">
+  <nav class="navbar navbar-light bg-light justify-content-between">
+  </nav>
+
+  <div class="list-group">
+    <div *ngFor="let mail of mails" style="cursor:pointer" class="list-group-item list-group-item-action flex-column align-items-start ">
+      <div style="display: -webkit-inline-box">
+        <div style="margin-left: 20px"><div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{mail.firstName}}{{mail.lastName}}</h5>
+        </div>
+          <div>telephone:{{mail.telephone}}</div>
+          <div>email:{{mail.email}}</div>
+          <div>Object:{{mail.sujet}}</div>
+          <div>Contenu:{{mail.contenu}}</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

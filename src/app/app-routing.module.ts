@@ -15,6 +15,8 @@ import {UserComponent} from './user/user.component';
 import {AdminComponent} from './admin/admin.component';
 import {PmComponent} from './pm/pm.component';
 import {EditaccountsComponent} from './editaccounts/editaccounts.component';
+import {EditrequestComponent} from './editrequest/editrequest.component';
+import {MailboxComponent} from './mailbox/mailbox.component';
 
 const routes: Routes = [
 
@@ -28,14 +30,15 @@ const routes: Routes = [
   { path: 'myprofile', component : MyProfileComponent},
   { path: 'edit', component : EditProfileComponent},
   { path: 'contact', component : ContactComponent},
-  { path: 'home', component: HomeComponent},
   { path: 'user', component: UserComponent},
   { path: 'pm', component: PmComponent},
   { path: 'admin', component: AdminComponent},
   { path: 'auth/login', component: LoginComponent},
   { path: 'signup', component: RegisterComponent},
   { path: 'adminaccount', component: EditaccountsComponent},
-  { path: '', redirectTo: 'home', pathMatch: 'full'}
+  { path: 'adminrequest', component: EditrequestComponent},
+  { path: 'mailbox', component: MailboxComponent},
+  { path: '', redirectTo: '/', pathMatch: 'full'}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

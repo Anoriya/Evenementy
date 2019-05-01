@@ -24,6 +24,12 @@ ngOnInit() {
     console.log(this.events);
   });
 }
+deletevent(id){
+  this.data.deletevent(id).subscribe(res => {
+    console.log("ok");
+    location.reload();
+  });
+}
 setvalue(h){this.filtre=h;}
 setkey(h){this.key=h;}
 ajouterEvt(){
