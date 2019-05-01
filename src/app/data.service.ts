@@ -8,6 +8,7 @@ import {event} from './event';
 import {user} from './user';
 import {HttpParameterCodec} from '@angular/common/http';
 import {HttpParams} from '@angular/common/http';
+import {mail} from './mail';
 
 
 
@@ -99,6 +100,9 @@ export class DataService {
     return this.Http.get('http://localhost:8080/api/mails');
   }
 
+  sendmail(obj: mail): Observable<string> {
+    return this.Http.post<string>('http://localhost:8080/api/mails', obj, this.httpOptions);
+  }
   addImage(fd) {
     return this.Http.post('http://localhost/Back/addFile.php', fd, {
       headers: new HttpHeaders().set('Content-Type', 'application/json'),

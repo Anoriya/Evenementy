@@ -67,31 +67,31 @@
 
 
             <div class="wew fadeInUp" data-wew-delay="0.2s">
-              <form name="form" style="width:70%;" action="" method="post" id="contact-form">
+              <form name="form" style="width:70%;" id="contact-form">
                 <div class="form-group">
                   <label>Prénom</label>
-                  <input type="text" class="form-control" name="firstName" required />
+                  <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" required />
                   <div class="invalid-feedback">
                     <div  style="color:#ed1c24">ce champ est obligatoire</div>
                   </div>
                 </div>
                 <div class="form-group">
                   <label>Nom</label>
-                  <input type="text" class="form-control" name="lastName" required />
+                  <input type="text" class="form-control" name="lastName"  [(ngModel)]="model.lastName" required />
                   <div class="invalid-feedback">
                     <div style="color:#ed1c24">ce champ est obligatoire</div>
                   </div>
                 </div>
                 <div class="form-group">
                   <label>Téléphone</label>
-                  <input type="text" class="form-control" name="phone" required />
+                  <input type="text" class="form-control" name="phone" [(ngModel)]="model.telephone" required />
                   <div class="invalid-feedback">
                     <div style="color:#ed1c24">ce champ est obligatoire</div>
                   </div>
                 </div>
                 <div class="form-group">
                   <label>Email</label>
-                  <input type="text" class="form-control" name="email" required />
+                  <input type="text" class="form-control" name="email" [(ngModel)]="model.email" required />
                   <div class="invalid-feedback">
                     <div style="color:#ed1c24">Ce champ est obligatoire</div>
                     <div style="color:#ed1c24">email invalide</div>
@@ -99,7 +99,7 @@
                 </div>
                 <div class="form-group">
                   <label>sujet</label>
-                  <input type="subject" class="form-control" name="subject" required maxlength="50" />
+                  <input type="subject" class="form-control" name="subject" [(ngModel)]="model.sujet" required maxlength="50" />
                   <div class="invalid-feedback">
                     <div style="color:#ed1c24">ce champ est obligatoire</div>
                     <div style="color:#ed1c24">le sujet ne peut pas depasser 50 caractères</div>
@@ -107,14 +107,14 @@
                 </div>
                 <div class="form-group">
                   <label>Message</label>
-                  <textarea class="form-control " name="message" rows="3" placeholder="Exprimez-vous"
+                  <textarea class="form-control " name="message" rows="3" placeholder="Exprimez-vous" [(ngModel)]="model.contenu"
                             required></textarea>
                   <div class="invalid-feedback">
                     <div style="color:#ed1c24">ce champ est obligatoire</div>
                   </div>
                 </div>
                 <div class="form-group">
-                  <button type="submit" name="submit" value="Submit" id="submit_form" class="btn btn-danger btn-lg" style="padding-left:20px;padding-right:20px;background-color:#ed1c23d3">Envoyer</button>
+                  <button type="submit" name="submit" value="Submit" id="submit_form" class="btn btn-danger btn-lg" style="padding-left:20px;padding-right:20px;background-color:#ed1c23d3" (click)="onSubmit()">Envoyer</button>
                 </div>
               </form>
             </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DataService} from '../data.service';
+import {mail} from '../mail';
 
 @Component({
   selector: 'app-contact',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
-
-  constructor() { }
+model=new mail();
+  constructor(private data:DataService) { }
 
   ngOnInit() {
   }
 
+onSubmit(){
+    this.data.sendmail(this.model).subscribe(res => {
+      console.log("ok");
+      location.reload();
+    });
+}
 }
