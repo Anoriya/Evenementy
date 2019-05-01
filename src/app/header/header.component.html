@@ -1,41 +1,41 @@
-<div class="wrapper row0">
+<div class="wrapper row0" style="background-color: black">
   <div id="topbar" class="hoc clear">
     <!-- ################################################################################################ -->
     <div class="fl_left">
       <ul>
-        <li [ngStyle]="{'margin-top':app.authority ? '18px' : '0px'}"><i class="fa fa-phone"></i> +256 71 456 890</li>
-        <li><i class="fa fa-envelope-o"></i> evenemenety@gmail.com</li>
+        <li [ngStyle]="{'margin-top':app.authority ? '18px' : '0px'}"><i class="fa fa-phone" style="font-family: Verdana"></i> +256 71 456 890</li>
+        <li style="font-family: Verdana"><i class="fa fa-envelope-o"></i> evenemenety@gmail.com</li>
       </ul>
     </div>
     <div class="fl_right">
       <ul>
         <li><a routerLink="/"><i class="fa fa-lg fa-home"></i></a></li>
-        <li *ngIf="!app.authority"><a routerLink="/login">Login</a></li>
-        <li *ngIf="!app.authority"><a routerLink="/register">Register</a></li>
+        <li *ngIf="!app.authority"><a routerLink="/login" style="font-family: cursive">Login</a></li>
+        <li *ngIf="!app.authority"><a routerLink="/register" style="font-family: cursive">Register</a></li>
        <li *ngIf="app.authority === 'user'"><div class="wrapper row2">
          <nav id="mainav" class="hoc clear">
            <ul class="clear">
-             <li><a class="drop" routerLink="/myprofile">Profile</a>
-               <ul >
-                 <li><a  style="color: #F4F4F4" routerLink="/myprofile">My Events</a></li>
-                 <li><a style="color: #F4F4F4" routerLink="/edit">Edit My Account</a></li>
-                 <li><a style="color: #F4F4F4" (click)="logout()">Log Out</a></li>
+             <li><a class="drop" routerLink="/myprofile" style="font-family: cursive">Profile</a>
+               <ul style="background-color: #9E4195">
+                 <li><a  style="color: #F4F4F4; font-family: Courier New" routerLink="/myprofile">My Events</a></li>
+                 <li><a style="color: #F4F4F4; font-family: Courier New" routerLink="/edit">Edit My Account</a></li>
+                 <li><a style="color: #F4F4F4; font-family: Courier New" (click)="logout()">Log Out</a></li>
                </ul>
              </li>
            </ul>
          </nav>
        </div>
     </li>
-        <li *ngIf="app.authority === 'admin'"><div class="wrapper row2">
+        <li *ngIf="app.authority === 'admin'"><div class="wrapper row2" >
           <nav id="mainav" class="hoc clear">
             <ul class="clear">
-              <li><a class="drop" routerLink="/admin">admin</a>
-                <ul>
-                  <li><a style="color: #F4F4F4" routerLink="/admin">Edit Events</a></li>
-                  <li><a style="color: #F4F4F4" routerLink="/adminaccount">Edit Accounts</a></li>
-                  <li><a style="color: #F4F4F4" routerLink="/adminrequest">Edit Requests</a></li>
-                  <li><a style="color: #F4F4F4" routerLink="/mailbox">Mail Box</a></li>
-                  <li><a style="color: #F4F4F4" (click)="logout()">Log Out</a></li>
+              <li><a class="drop" routerLink="/admin" style="font-family: cursive">admin</a>
+                <ul style="background-color: #9E4195">
+                  <li><a style="color: #F4F4F4; font-family: Courier New" routerLink="/admin">Edit Events</a></li>
+                  <li><a style="color: #F4F4F4; font-family: Courier New" routerLink="/adminaccount">Edit Accounts</a></li>
+                  <li><a style="color: #F4F4F4; font-family: Courier New" routerLink="/adminrequest">Edit Requests</a></li>
+                  <li><a style="color: #F4F4F4; font-family: Courier New" routerLink="/mailbox">Mail Box</a></li>
+                  <li><a style="color: #F4F4F4; font-family: Courier New" (click)="logout()">Log Out</a></li>
                 </ul>
               </li>
             </ul>
@@ -50,12 +50,12 @@
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<div class="wrapper row1">
+<div class="wrapper row1" style="background-color: antiquewhite">
   <header id="header" class="hoc clear">
     <!-- ################################################################################################ -->
     <div id="logo" class="fl_left">
-      <h1><a routerLink="/" style="color: #9E4195">Evenemenety</a></h1>
-      <span>Discover events according to your music taste</span>
+      <h1><a routerLink="/" style="color: #9E4195; font-family: Comic Sans MS">Evenemenety</a></h1>
+      <span style="font-family: Verdana">Discover events according to your music taste</span>
     </div>
     <!-- ################################################################################################ -->
   </header>
@@ -63,12 +63,12 @@
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
-<div class="wrapper row2">
+<div class="wrapper row2" style="background-color: oldlace">
   <nav id="mainav" class="hoc clear">
     <ul class="clear">
-      <li class="active"><a routerLink="/">Home</a></li>
-      <li><a routerLink="/search">Events</a></li>
-      <li><a routerLink="/contact">Contact Us</a></li>
+      <li class="active"><a routerLink="/" style="font-family: Comic Sans MS">Home</a></li>
+      <li><a routerLink="/search" style="font-family: Comic Sans MS">Events</a></li>
+      <li><a routerLink="/contact" style="font-family: Comic Sans MS">Contact Us</a></li>
     </ul>
   </nav>
 </div>

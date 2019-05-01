@@ -1,9 +1,11 @@
-<div class="p-5" *ngIf="!formon">
-<nav class="navbar navbar-light bg-light justify-content-between">
-  <button class="navbar-brand btn btn-primary" *ngIf="app.authority" (click)="formonoff()">New Event</button>
+<div style="background-image: url('../../assets/images/party2.jpeg')"><div class="row" style="margin: 0 auto;padding-left: 200px">
+
+<div class="p-5" *ngIf="!formon" style="width: 1200px">
+<nav class="navbar navbar-light bg-light justify-content-between" style="background-color: blanchedalmond">
+  <button class="btn btn-warning" *ngIf="app.authority" (click)="formonoff()" style="font-family: Palatino Linotype">New Event</button>
   <form class="form-inline">
-    <label>search with : </label>
-    <select class="form-control mr-sm-2" #t (change)="setvalue(t.value)"><option value="music">music</option><option value="name">name</option></select>
+    <label style="font-family: Comic Sans MS">search by : </label>
+    <select class="form-control mr-sm-2" #t (change)="setvalue(t.value)"><option value="music" style="font-family: Palatino Linotype">music</option><option value="name">name</option></select>
     <input class="form-control mr-sm-2" #s type="search" (change)="setkey(s.value)" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="search()">Search</button>
   </form>
@@ -11,20 +13,20 @@
 
   <div class="list-group">
     <div *ngFor="let event of events" style="cursor:pointer" routerLink="/event/{{event.id}}" class="list-group-item list-group-item-action flex-column align-items-start ">
-      <div style="display: -webkit-inline-box"><img style="width: 200px" src="http://localhost/photos/{{event.imageUrl}}">
+      <div style="display: -webkit-inline-box"><img style="width: 200px" src="file:///C:/photos/{{event.imageUrl}}">
       <div style="margin-left: 20px"><div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">{{event.name}}</h5>
+        <h5 class="mb-1" style="font-family: Comic Sans MS">{{event.name}}</h5>
       </div>
-      <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-      <p class="mb-1">Music:{{event.music}}</p>
-      <div><small routerLink="/profile">{{event.starting_time}}</small></div><br><div><small routerLink="/profile">{{event.user.name}}</small></div></div><small style="margin-left: 450px">3 days ago</small></div>
+      <p class="mb-1" style="font-family: MS Sans Serif">{{event.place}}</p>
+      <p class="mb-1" style="font-family: Palatino Linotype">Music  : {{event.music}}</p>
+      <div><small routerLink="/profile">{{event.starting_time}}</small></div><br><div><small routerLink="/profile" style="font-family: Impact">{{event.user.name}}</small></div></div><small style="position: absolute; margin-left: 900px">{{event.date}}</small></div>
 
     </div>
   </div>
 </div>
 
 <!----------------   Formulaire Ajout evenement commence ici  --------------->
-<div *ngIf="formon"><div style="position: absolute;width: 50px"><a (click)="formoffon()"><img src="../../assets/images/39764.png"></a></div>
+<div *ngIf="formon" style="width: 1200px; vertical-align: middle; margin-top: 10px"><div style="position: absolute;width: 50px"><a (click)="formoffon()"><img src="../../assets/images/39764.png"></a></div>
 <div id="Form" style="text-align: -webkit-center">
   <div class="panel panel-default">
     <div class="panel-body">
@@ -93,4 +95,5 @@
       </form>
     </div>
   </div>
+</div></div>
 </div></div>
