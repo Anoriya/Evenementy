@@ -16,7 +16,8 @@ user=false;
   }
   logout() {
     this.token.signOut();
-    window.location.reload();
+    this.app.authority= null;
     this.router.navigate(['/']);
+    // window.location.reload();
   }
 }
