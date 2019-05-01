@@ -103,10 +103,7 @@ export class DataService {
   sendmail(obj: mail): Observable<string> {
     return this.Http.post<string>('http://localhost:8080/api/mails', obj, this.httpOptions);
   }
-  addImage(fd) {
-    return this.Http.post('http://localhost/Back/addFile.php', fd, {
-      headers: new HttpHeaders().set('Content-Type', 'application/json'),
-      responseType: 'text'
-    });
+  addImage(f): Observable<string> {
+    return this.Http.post<string>('http://localhost:8080/api/files', f, this.httpOptions);
   }
 }

@@ -6,4 +6,5 @@ export class event{
   startingTime: string;
   endingTime: string;
   description: string;
+  imageUrl:string;
 }

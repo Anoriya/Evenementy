@@ -15,7 +15,7 @@ events;
 model=new event();
 filtre='music';
 key;
-
+  fileList: FileList;
 constructor(private app:AppComponent,private data:DataService) { }
 
 ngOnInit() {
@@ -34,6 +34,7 @@ setvalue(h){this.filtre=h;}
 setkey(h){this.key=h;}
 ajouterEvt(){
   console.log(this.model);
+  this.data.addImage(this.fileList.file).subscribe(()=> console.log("ok"),error => console.log(error));
   this.data.addEvent(this.model).subscribe(()=> location.reload(),error => console.log(error));
 }
 formonoff(){
@@ -54,4 +55,8 @@ search(){
     console.log(res);
   });}
 }
+  fileChange(event) {
+    this.fileList = event.target.files;
+    this.model.imageUrl=this.fileList[0].name;
+  }
 }
