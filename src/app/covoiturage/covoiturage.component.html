@@ -1,21 +1,22 @@
-<div class="p-5" *ngIf="!formon">
+<div style="background-image: url('../../assets/images/party2.jpeg')"><div class="p-5" *ngIf="!formon">
   <nav class="navbar navbar-light bg-light justify-content-between">
-    <button class="navbar-brand btn btn-primary" *ngIf="app.authority" (click)="formonoff()">Add Covoiturage</button>
+    <button class="navbar-brand btn btn-warning" *ngIf="app.authority" (click)="formonoff()">Add Covoiturage</button>
   </nav>
 
   <div class="list-group">
-    <a *ngFor="let cov of covs" href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
+    <a *ngFor="let cov of covs" class="list-group-item list-group-item-action flex-column align-items-start ">
       <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">List group item heading</h5>
-        <small class="btn" *ngIf="app.authority" >s'inscrire</small>
+        <h5 class="mb-1">Car:{{cov.car}}</h5>
+        <small class="btn" *ngIf="app.authority">s'inscrire</small>
       </div>
-      <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-      <small>Donec id elit non mi porta.</small>
+      <p class="mb-1" routerLink="/profile/{{cov.user.username}}">user:{{cov.user.username}}</p>
+      <p class="mb-1">price:{{cov.price}}</p>
+      <small>Number of Places:{{cov.nombrePlaces}}</small>
     </a>
   </div>
 </div>
 <!----------------   Formulaire Ajout covoiturage commence ici  --------------->
-<div *ngIf="formon"><div style="position: absolute;width: 50px"><a (click)="formoffon()"><img src="../../assets/images/39764.png"></a></div>
+<div *ngIf="formon" style="height: fit-content"><div style="position: absolute;width: 50px"><a (click)="formoffon()"><img src="../../assets/images/39764.png"></a></div>
   <div id="Form" style="text-align: -webkit-center">
     <div class="panel panel-default">
       <div class="panel-body">
@@ -25,7 +26,7 @@
           <div class="form-group">
             <label  class="col-sm-4 control-label">car'sname</label>
             <div class="col-sm-4">
-              <input type="text" class="form-control" name="titre" placeholder="titre" [(ngModel)]="model.car"  required>
+              <input type="text" class="form-control" name="titre" [(ngModel)]="model.car"  required>
             </div>
           </div>
 
@@ -46,7 +47,7 @@
           <div class="form-group">
             <label  class="col-sm-4 control-label">meetingPlace</label>
             <div class="col-sm-4">
-              <input type="text" class="form-control" name="contenu" placeholder="contenu"  [(ngModel)]="model.meetingPlace" required>
+              <input type="text" class="form-control" name="contenu"  [(ngModel)]="model.meetingPlace" required>
             </div>
           </div>
 
@@ -59,3 +60,4 @@
       </div>
     </div>
   </div></div>
+</div>

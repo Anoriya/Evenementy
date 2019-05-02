@@ -1,4 +1,4 @@
-
+<div style="background-image: url('../../assets/images/party2.jpeg')">
 <div style="text-align: center"><h3>Admin Board</h3></div><div class="p-5">
   <nav class="navbar navbar-light bg-light justify-content-between">
     <form class="form-inline">
@@ -9,9 +9,9 @@
   </nav>
 
   <div class="list-group">
-    <div *ngFor="let user of users" style="cursor:pointer" routerLink="/profile/{{user.id}}" class="list-group-item list-group-item-action flex-column align-items-start ">
-      <div style="display: -webkit-inline-box"><img style="width: 200px" src="http://localhost/photos/{{user.imageUrl}}">
-        <div style="margin-left: 20px"><div class="d-flex w-100 justify-content-between">
+    <div *ngFor="let user of users" style="cursor:pointer" class="list-group-item list-group-item-action flex-column align-items-start ">
+      <div style="display: -webkit-inline-box"><img style="width: 200px" src="../../assets/images/{{user.imageUrl}}">
+        <div style="margin-left: 20px" routerLink="/profile/{{user.username}}"><div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1">{{user.username}}</h5>
         </div>
           </div>
@@ -20,4 +20,5 @@
 
     </div>
   </div>
+</div>
 </div>

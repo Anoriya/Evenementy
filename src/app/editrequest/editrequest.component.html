@@ -1,4 +1,4 @@
-<div style="text-align: center"><h3>Admin Board</h3></div><div class="p-5">
+<div style="background-image: url('../../assets/images/party2.jpeg')"><div style="text-align: center"><h3>Admin Board</h3></div><div class="p-5">
   <nav class="navbar navbar-light bg-light justify-content-between">
     <form class="form-inline">
       <label>search with : </label>
@@ -9,15 +9,19 @@
   </nav>
 
   <div class="list-group">
-    <div *ngFor="let req of reqs" style="cursor:pointer" routerLink="/req/{{req.id}}" class="list-group-item list-group-item-action flex-column align-items-start ">
-      <div style="display: -webkit-inline-box"><img style="width: 200px" src="http://localhost/photos/{{req.imageUrl}}">
-        <div style="margin-left: 20px"><div class="d-flex w-100 justify-content-between">
+    <div *ngFor="let req of reqs" style="cursor:pointer" class="list-group-item list-group-item-action flex-column align-items-start ">
+      <div style="display: -webkit-inline-box"><img routerLink="/req/{{req.id}}" style="width: 200px" src="../../assets/images/{{req.imageUrl}}">
+        <div routerLink="/req/{{req.id}}" style="margin-left: 20px"><div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1">{{req.name}}</h5>
         </div>
-          <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+          <p class="mb-1">{{req.description}}</p>
           <p class="mb-1">Music:{{req.music}}</p>
-          <div><small>{{req.starting_time}}</small></div><br><div><small routerLink="/profile">{{req.user.name}}</small></div></div><small style="margin-left: 450px">3 days ago</small><br><button (click)="acceptevent(req.id)" style="margin-left: 400px" class="btn btn-danger">accept</button> <br><button (click)="deletevent(req.id)" style="margin-left: 400px;margin-top: 20px" class="btn btn-danger">delete</button></div>
+          <p class="mb-1">Place:{{req.place}}</p>
+          <p class="mb-1">Date:{{req.date}}</p>
+          <div><small>{{req.starting_time}}</small></div><br><div><small routerLink="/profile/{{req.user.username}}">{{req.user.username}}</small></div></div>
+        <small style="margin-left: 450px">3 days ago</small><br><button (click)="acceptevent(req.id)" style="margin-left: 400px" class="btn btn-danger">accept</button> <br><button (click)="deletevent(req.id)" style="margin-left: 400px;margin-top: 20px" class="btn btn-danger">delete</button></div>
 
     </div>
   </div>
+</div>
 </div>

@@ -1,6 +1,6 @@
-<div style="text-align: center"><h3>Admin Board</h3></div><div class="p-5" *ngIf="!formon">
-  <nav class="navbar navbar-light bg-light justify-content-between">
-    <button class="navbar-brand btn btn-primary" (click)="formonoff()">New Event</button>
+<div style="background-image: url('../../assets/images/party2.jpeg')"><div style="text-align: center"><h3>Admin Board</h3></div><div class="p-5" *ngIf="!formon">
+  <nav class="navbar navbar-light bg-light justify-content-between" style="background-color: blanchedalmond">
+    <button class="navbar-brand btn btn-warning" (click)="formonoff()" style="font-family: Palatino Linotype">New Event</button>
     <form class="form-inline">
       <label>search with : </label>
       <select class="form-control mr-sm-2" #t (change)="setvalue(t.value)"><option value="music">music</option><option value="name">name</option></select>
@@ -10,21 +10,24 @@
   </nav>
 
   <div class="list-group">
-    <div *ngFor="let event of events" style="cursor:pointer" routerLink="/event/{{event.id}}" class="list-group-item list-group-item-action flex-column align-items-start ">
-      <div style="display: -webkit-inline-box"><img style="width: 200px" src="http://localhost/photos/{{event.imageUrl}}">
-        <div style="margin-left: 20px"><div class="d-flex w-100 justify-content-between">
+    <div *ngFor="let event of events" style="cursor:pointer" class="list-group-item list-group-item-action flex-column align-items-start ">
+      <div style="display: -webkit-inline-box;width: inherit"><img style="width: 200px" src="../../assets/images/{{event.imageUrl}}"  routerLink="/event/{{event.id}}">
+        <div style="margin-left: 20px"  routerLink="/event/{{event.id}}"><div class="d-flex w-100 justify-content-between">
           <h5 class="mb-1">{{event.name}}</h5>
         </div>
           <p class="mb-1">{{event.description}}</p>
           <p class="mb-1">Music:{{event.music}}</p>
-          <div><small routerLink="/profile">{{event.starting_time}}</small></div><br><div><small routerLink="/profile">{{event.user.name}}</small></div></div><small style="margin-left: 450px">3 days ago</small><br><button (click)="deletevent(event.id)" style="margin-left: 400px" class="btn btn-danger">delete</button> </div>
+          <p class="mb-1">Place:{{event.place}}</p>
+          <p class="mb-1">Date:{{event.date}}</p>
+          <div><small>Starting Time:{{event.starting_time}}</small></div><br><div><small routerLink="/profile/{{event.user.username}}">{{event.user.username}}</small></div></div>
+        <div style="margin: 0 auto"><small style="margin-left: 450px">3 days ago</small><br><button (click)="deletevent(event.id)" style="margin-left: 400px" class="btn btn-danger">delete</button></div></div>
 
     </div>
   </div>
 </div>
 
 <!----------------   Formulaire Ajout evenement commence ici  --------------->
-<div *ngIf="formon"><div style="position: absolute;width: 50px"><a (click)="formoffon()"><img src="../../assets/images/39764.png"></a></div>
+<div *ngIf="formon" style="height: fit-content"><div style="position: absolute;width: 50px"><a (click)="formoffon()"><img src="../../assets/images/39764.png"></a></div>
   <div id="Form" style="text-align: -webkit-center">
     <div class="panel panel-default">
       <div class="panel-body">
@@ -95,3 +98,4 @@
       </div>
     </div>
   </div></div>
+</div>
