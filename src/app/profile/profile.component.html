@@ -1,45 +1,71 @@
-<div style="background-image: url('../../assets/images/profile.jpg');height: fit-content"><div class="col-md-4 column" style="margin: 0 auto;margin-bottom: 20px">
-  <div class="contact-now">
-    <div class="contact">
-      <div class="information">
-        <img src="http://localhost/photos/{{user.imageUrl}}" style="width: 350px">
+<div style="background-image: url('../../assets/images/image.jpg');height: fit-content"><div class="col-md-4 column" style="margin: 0 auto;margin-bottom: 20px">
+
+  <div class="container bootstrap snippet">
+    <div class="panel-body inf-content">
+      <div class="row">
+        <div class="col-md-4">
+          <img alt="" style="width:600px;" title="" class="img-circle img-thumbnail isTooltip" src="../../assets/images/{{user.imageUrl}}" data-original-title="Usuario">
+          <ul title="Ratings" class="list-inline ratings text-center">
+            <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <strong style="font-family: 'Comic Sans MS'">Informations</strong><br>
+          <div class="table-responsive">
+            <table class="table table-condensed table-responsive table-user-information">
+              <tbody>
+
+              <tr>
+                <td>
+                  <strong>
+                    <span class="glyphicon glyphicon-user  text-primary" style="font-family: 'Comic Sans MS'"></span>
+                    Name
+                  </strong>
+                </td>
+                <td class="text-primary" style="font-family: 'Comic Sans MS'">
+                  {{user.name}}
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <strong>
+                    <span class="glyphicon glyphicon-bookmark text-primary" style="font-family: 'Comic Sans MS'"></span>
+                    Username
+                  </strong>
+                </td>
+                <td class="text-primary" style="font-family: 'Comic Sans MS'">
+                  {{user.username}}
+                </td>
+              </tr>
+
+
+              <tr>
+                <td>
+                  <strong>
+                    <span class="glyphicon glyphicon-envelope text-primary" style="font-family: 'Comic Sans MS'"></span>
+                    Email
+                  </strong>
+                </td>
+                <td class="text-primary" style="font-family: 'Comic Sans MS'">
+                  {{user.email}}
+                </td>
+              </tr>
+
+
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="contact">
-      <div class="information">
+  </div>
 
-
-        <strong>name:</strong>
-        <p>{{user.name}}
-        </p>
-      </div>
-    </div>
-    <div class="contact">
-      <div class="information">
-
-
-        <strong>username:</strong>
-        <p>{{user.username}}
-        </p>
-      </div>
-    </div>
-    <!-- Contact Info -->
-    <div class="contact">
-      <div class="information">
-
-        <br>
-        <strong>ADRESSE E-MAIL</strong>
-        <p>{{user.email}}</p>
-
-      </div>
-    </div>
-    <!-- Contact Info -->
-    <div class="contact">
-      <div class="information">
-        <strong>Password</strong>
-        <p>{{user.password}}</p>
-      </div>
-    </div></div></div>
+</div>
 <div style="margin: 0 auto;text-align: center;margin-bottom: 20px;font-size: 30px"><p>Rate User!!</p>
   <span class="fa fa-star checked"></span>
   <span class="fa fa-star checked"></span>

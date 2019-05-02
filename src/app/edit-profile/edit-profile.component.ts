@@ -20,6 +20,7 @@ user;
   ngOnInit() {
     this.data.getUser().subscribe(res => {
       this.user = res;
+      this.user.password= null;
       this.model=this.user;
       console.log(this.model);
       console.log(this.user);
